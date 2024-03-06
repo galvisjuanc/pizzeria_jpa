@@ -1,10 +1,6 @@
 package com.jcgc.pizzeria.persistance.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.IdClass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,4 +29,12 @@ public class OrderItemEntity {
 
     @Column(nullable = false, columnDefinition = "Decimal(5,2)")
     private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "id_order", referencedColumnName = "id_order", insertable = false, updatable = false)
+    private OrderEntity order;
+
+    @OneToOne
+    @JoinColumn(name = "id_pizza", referencedColumnName = "id_pizza", insertable = false, updatable = false)
+    private PizzaEntity pizza;
 }
