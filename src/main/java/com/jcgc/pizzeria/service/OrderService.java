@@ -18,7 +18,9 @@ public class OrderService {
     }
 
     public List<OrderEntity> getAll() {
-        return this.orderRepository.findAll();
+        List<OrderEntity> orderEntities = this.orderRepository.findAll();
+        orderEntities.forEach(o -> System.out.println(o.getCustomer().getName()));
+        return orderEntities;
     }
 
 }
