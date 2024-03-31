@@ -34,6 +34,11 @@ public class PizzaController {
         return ResponseEntity.ok(this.pizzaService.getAvailable());
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<PizzaEntity> getByName(@PathVariable String name) {
+        return ResponseEntity.ok(this.pizzaService.getByName(name));
+    }
+
     @PostMapping
     public ResponseEntity<PizzaEntity> addPizza(@RequestBody PizzaEntity pizza) {
         if (pizza.getIdPizza() == null || !this.pizzaService.exists(pizza.getIdPizza())) {
