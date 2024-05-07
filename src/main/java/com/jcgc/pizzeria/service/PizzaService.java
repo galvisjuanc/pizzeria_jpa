@@ -27,7 +27,7 @@ public class PizzaService {
     }
 
     public PizzaEntity getByName(String name) {
-        return this.pizzaRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
+        return this.pizzaRepository.findFirstByAvailableTrueAndNameIgnoreCase(name);
     }
 
     public List<PizzaEntity> getWith(String ingredient) {
