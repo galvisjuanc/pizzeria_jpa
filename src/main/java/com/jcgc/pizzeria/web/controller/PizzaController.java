@@ -3,6 +3,7 @@ package com.jcgc.pizzeria.web.controller;
 import com.jcgc.pizzeria.persistance.entity.PizzaEntity;
 import com.jcgc.pizzeria.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,9 @@ public class PizzaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PizzaEntity>> getAll() {
-        return ResponseEntity.ok(this.pizzaService.getAll());
+    public ResponseEntity<Page<PizzaEntity>> getAll(@RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "8") int elements) {
+        return ResponseEntity.ok(this.pizzaService.getAll(page, elements));
     }
 
     @GetMapping("/{idPizza}")
