@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
-
     private final CustomerService customerService;
 
     @Autowired
