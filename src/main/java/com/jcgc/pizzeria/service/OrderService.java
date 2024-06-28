@@ -2,7 +2,6 @@ package com.jcgc.pizzeria.service;
 
 import com.jcgc.pizzeria.persistance.entity.OrderEntity;
 import com.jcgc.pizzeria.persistance.repository.OrderRepository;
-import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +38,9 @@ public class OrderService {
     public List<OrderEntity> getOutsideOrders() {
         List<String> methods = Arrays.asList(DELIVERY, CARRYOUT);
         return this.orderRepository.findAllByMethodIn(methods);
+    }
+
+    public List<OrderEntity> getCustomerOrders(String idCustomer) {
+        return this.orderRepository.findCustomerOrders(idCustomer);
     }
 }
