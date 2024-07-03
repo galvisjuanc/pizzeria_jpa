@@ -1,6 +1,7 @@
 package com.jcgc.pizzeria.web.controller;
 
 import com.jcgc.pizzeria.persistance.entity.OrderEntity;
+import com.jcgc.pizzeria.persistance.projection.OrderSummary;
 import com.jcgc.pizzeria.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,5 +39,10 @@ public class OrderController {
     @GetMapping("/customer/{id}")
     public ResponseEntity<List<OrderEntity>> getCustomerOrders(@PathVariable String id) {
         return ResponseEntity.ok(this.orderService.getCustomerOrders(id));
+    }
+
+    @GetMapping("/summary/{id}")
+    public ResponseEntity<OrderSummary> getSummary(@PathVariable int id) {
+        return ResponseEntity.ok(this.orderService.getSummary(id));
     }
 }
