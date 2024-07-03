@@ -1,6 +1,7 @@
 package com.jcgc.pizzeria.service;
 
 import com.jcgc.pizzeria.persistance.entity.OrderEntity;
+import com.jcgc.pizzeria.persistance.projection.OrderSummary;
 import com.jcgc.pizzeria.persistance.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,9 @@ public class OrderService {
 
     public List<OrderEntity> getCustomerOrders(String idCustomer) {
         return this.orderRepository.findCustomerOrders(idCustomer);
+    }
+
+    public OrderSummary getSummary(int orderId) {
+        return this.orderRepository.findSummary(orderId);
     }
 }
