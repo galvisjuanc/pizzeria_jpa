@@ -14,13 +14,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.io.Serializable;
+
 @Entity
 @EntityListeners({AuditingEntityListener.class, AuditPizzaListener.class})
 @Table(name = "pizza")
 @Getter
 @Setter
 @NoArgsConstructor
-public class PizzaEntity extends AuditableEntity {
+public class PizzaEntity extends AuditableEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
