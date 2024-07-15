@@ -1,5 +1,7 @@
 package com.jcgc.pizzeria.persistance.entity;
 
+import com.jcgc.pizzeria.persistance.audit.AuditPizzaListener;
+import com.jcgc.pizzeria.persistance.audit.AuditableEntity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,7 +15,7 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners({AuditingEntityListener.class, AuditPizzaListener.class})
 @Table(name = "pizza")
 @Getter
 @Setter
