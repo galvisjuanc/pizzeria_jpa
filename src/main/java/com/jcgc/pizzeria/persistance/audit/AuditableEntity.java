@@ -1,4 +1,4 @@
-package com.jcgc.pizzeria.persistance.entity;
+package com.jcgc.pizzeria.persistance.audit;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
