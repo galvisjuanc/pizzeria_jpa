@@ -51,7 +51,7 @@ public class OrderService {
         return this.orderRepository.findSummary(orderId);
     }
 
-    //@Transactional
+    @Transactional
     public boolean saveRandomOrder(RandomOrderDto randomOrderDto) {
         return this.orderRepository.saveRandomOrder(randomOrderDto.getIdCustomer(), randomOrderDto.getMethod());
     }
