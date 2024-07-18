@@ -3,11 +3,9 @@ package com.jcgc.pizzeria.web.controller;
 import com.jcgc.pizzeria.persistance.entity.OrderEntity;
 import com.jcgc.pizzeria.persistance.projection.OrderSummary;
 import com.jcgc.pizzeria.service.OrderService;
+import com.jcgc.pizzeria.service.dto.RandomOrderDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,5 +42,10 @@ public class OrderController {
     @GetMapping("/summary/{id}")
     public ResponseEntity<OrderSummary> getSummary(@PathVariable int id) {
         return ResponseEntity.ok(this.orderService.getSummary(id));
+    }
+
+    @PostMapping("/random")
+    public ResponseEntity<Boolean> randomOrder(@RequestBody RandomOrderDto randomOrderDto) {
+        return ResponseEntity.ok(this.orderService.saveRandomOrder(randomOrderDto));
     }
 }
