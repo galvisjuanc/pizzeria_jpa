@@ -33,7 +33,6 @@ public class PizzaController {
     }
 
     @GetMapping("/available")
-    //@CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Page<PizzaEntity>> getAvailable(@RequestParam(defaultValue = "0") int page,
                                                           @RequestParam(defaultValue = "8") int elements,
                                                           @RequestParam(defaultValue = "price") String sortBy,
