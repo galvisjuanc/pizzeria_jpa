@@ -4,7 +4,6 @@ import com.jcgc.pizzeria.persistance.entity.CustomerEntity;
 import com.jcgc.pizzeria.persistance.entity.OrderEntity;
 import com.jcgc.pizzeria.service.CustomerService;
 import com.jcgc.pizzeria.service.OrderService;
-import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
