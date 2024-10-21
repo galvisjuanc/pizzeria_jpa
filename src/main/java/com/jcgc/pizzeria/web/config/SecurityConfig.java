@@ -22,6 +22,7 @@ public class SecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests(customizeRequest -> customizeRequest
+                        .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/customers/**").hasAnyRole("ADMIN", "CUSTOMER")
                         .requestMatchers(HttpMethod.GET, "/api/pizzas/**").hasAnyRole("ADMIN", "CUSTOMER")
                         .requestMatchers(HttpMethod.POST, "/api/pizzas/**").hasRole("ADMIN")
